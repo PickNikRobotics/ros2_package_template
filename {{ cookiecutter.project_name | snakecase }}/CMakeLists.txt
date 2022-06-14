@@ -7,9 +7,9 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 set(THIS_PACKAGE_INCLUDE_DEPENDS
-    rclcpp
-    eigen3_cmake_module
-    Eigen3
+  rclcpp
+  eigen3_cmake_module
+  Eigen3
 )
 
 find_package(ament_cmake REQUIRED)
@@ -23,19 +23,19 @@ endforeach()
 
 # Declare a C++ library
 add_library(
-    ${PROJECT_NAME}
-    src/{{ cookiecutter.class_name | snakecase }}.cpp
+  ${PROJECT_NAME}
+  src/{{ cookiecutter.class_name | snakecase }}.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} ${THIS_PACKAGE_INCLUDE_DEPENDS})
 target_include_directories(${PROJECT_NAME}
-    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-           $<INSTALL_INTERFACE:include>)
+  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+         $<INSTALL_INTERFACE:include>)
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 
 # Declare a C++ executable
 add_executable(
-    ${PROJECT_NAME}_node
-    src/main.cpp
+  ${PROJECT_NAME}_node
+  src/main.cpp
 )
 target_link_libraries(${PROJECT_NAME}_node ${PROJECT_NAME})
 ament_target_dependencies(${PROJECT_NAME}_node ${THIS_PACKAGE_INCLUDE_DEPENDS})
@@ -45,11 +45,11 @@ ament_target_dependencies(${PROJECT_NAME}_node ${THIS_PACKAGE_INCLUDE_DEPENDS})
 #############
 
 install(
-    TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
-    EXPORT ${PROJECT_NAME}Targets
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
-    RUNTIME DESTINATION lib/${PROJECT_NAME}
+  TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
+  EXPORT ${PROJECT_NAME}Targets
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
 #############
@@ -69,7 +69,7 @@ if(BUILD_TESTING)
   # GTests
   ament_add_gtest({{ cookiecutter.class_name | snakecase }}_test test/{{ cookiecutter.class_name | snakecase }}_test.cpp)
   target_link_libraries({{ cookiecutter.class_name | snakecase }}_test
-      ${PROJECT_NAME})
+    ${PROJECT_NAME})
   ament_target_dependencies({{ cookiecutter.class_name | snakecase }}_test ${THIS_PACKAGE_INCLUDE_DEPENDS})
 endif()
 

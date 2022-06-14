@@ -1,12 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project({{ cookiecutter.project_name | snakecase }})
 
-# Default to C++17
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)
-endif()
-
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-W -Wall -Wextra
       -Wwrite-strings -Wunreachable-code -Wpointer-arith
@@ -38,6 +32,7 @@ ament_target_dependencies(${PROJECT_NAME} ${THIS_PACKAGE_INCLUDE_DEPENDS})
 target_include_directories(${PROJECT_NAME}
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
            $<INSTALL_INTERFACE:include>)
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 
 # Declare a C++ executable
 add_executable(

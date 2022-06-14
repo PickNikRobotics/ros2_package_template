@@ -2,10 +2,8 @@ cmake_minimum_required(VERSION 3.16)
 project({{ cookiecutter.project_name | snakecase }})
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Werror -Wall -Wextra
-      -Wwrite-strings -Wunreachable-code -Wpointer-arith
-      -Winit-self -Wredundant-decls
-      -Wno-unused-parameter -Wno-unused-function)
+  add_compile_options(-Werror -Wall -Wextra -Wpedantic -Wshadow
+    -Wsign-converstion -Winit-self -Wredundant-decls)
 endif()
 
 set(THIS_PACKAGE_INCLUDE_DEPENDS

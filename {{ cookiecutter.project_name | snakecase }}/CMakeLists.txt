@@ -31,7 +31,7 @@ endforeach()
 
 # Declare a C++ library
 add_library(
-    ${PROJECT_NAME} SHARED
+    ${PROJECT_NAME}
     src/{{ cookiecutter.class_name | snakecase }}.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} ${THIS_PACKAGE_INCLUDE_DEPENDS})

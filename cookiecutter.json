@@ -1,0 +1,13 @@
+{
+  "project_name": "my_project",
+  "class_name": "MyClass",
+  "ros2_version": "rolling",
+  "project_short_description": "TODO: Project Short Description",
+  "author": "John Doe",
+  "author_email": "john@doe.com",
+  "ci_docker_image": "",
+  "ci_underlay_path": "",
+  "_extensions": [
+    "jinja2_stringcase.StringCaseExtension"
+  ]
+}

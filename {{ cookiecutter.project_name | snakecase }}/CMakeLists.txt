@@ -3,7 +3,7 @@ project({{ cookiecutter.project_name | snakecase }} CXX)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Werror -Wall -Wextra -Wpedantic -Wshadow
-    -Wsign-converstion -Winit-self -Wredundant-decls)
+    -Wsign-conversion -Winit-self -Wredundant-decls)
 endif()
 
 set(THIS_PACKAGE_INCLUDE_DEPENDS

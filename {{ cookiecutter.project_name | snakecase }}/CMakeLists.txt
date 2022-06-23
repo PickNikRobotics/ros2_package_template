@@ -6,6 +6,8 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     -Wsign-conversion -Winit-self -Wredundant-decls)
 endif()
 
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+
 set(THIS_PACKAGE_INCLUDE_DEPENDS
   rclcpp
   eigen3_cmake_module
@@ -23,7 +25,7 @@ endforeach()
 
 # Declare a C++ library
 add_library(
-  ${PROJECT_NAME} {{ 'SHARED' if cookiecutter.library_type == 'shared' else '' }}
+  ${PROJECT_NAME}
   src/{{ cookiecutter.class_name | snakecase }}.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} ${THIS_PACKAGE_INCLUDE_DEPENDS})

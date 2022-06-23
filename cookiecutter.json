@@ -1,7 +1,6 @@
 {
   "project_name": "my_project",
   "class_name": "MyClass",
-  "library_type": ["shared", "static"],
   "ros2_version": "rolling",
   "project_short_description": "TODO: Project Short Description",
   "author": "John Doe",

@@ -7,7 +7,7 @@
     <maintainer email="{{ cookiecutter.author_email }}">{{ cookiecutter.author }}</maintainer>
     <author email="{{ cookiecutter.author_email }}">{{ cookiecutter.author }}</author>
 
-    <license>BSD</license>
+    <license>BSD-3-Clause</license>
 
     <url type="website">https://github.com/PickNikRobotics/{{ cookiecutter.project_name | snakecase }}</url>
     <url type="bugtracker">https://github.com/PickNikRobotics/{{ cookiecutter.project_name | snakecase }}/issues</url>
